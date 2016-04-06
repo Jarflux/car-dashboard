@@ -22,7 +22,7 @@ logging:
         - type: console
           logFormat: "%d{dd-MM-yyyy HH:mm:ss} *%p* [%t] %logger | %msg %n"
         - type: file
-          currentLogFilename: /var/log/dashboard.log
+          currentLogFilename: log/dashboard.log
           archivedLogFilenamePattern: /tmp/log/dropwizard-%d{yyyy-MM-dd}.log
           logFormat: "%d{dd-MM-yyyy HH:mm:ss} *%p* [%t] %logger | %msg %n"
           archivedFileCount: 7

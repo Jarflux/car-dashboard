@@ -1,4 +1,4 @@
-package be.jarflux.dashboard.health;
+package be.jarflux.car.health;
 
 import com.codahale.metrics.health.HealthCheck;
 

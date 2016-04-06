@@ -87,7 +87,7 @@
                                         implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
                                 <transformer
                                         implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <mainClass>be.jarflux.dashboard.App</mainClass>
+                                    <mainClass>be.jarflux.car.Car</mainClass>
                                 </transformer>
                             </transformers>
                         </configuration>

@@ -1,4 +1,4 @@
-package be.jarflux.dashboard.controller;
+package be.jarflux.car.controller;
 
 /**
  * Developer: Ben Oeyen

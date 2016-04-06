@@ -1,6 +1,6 @@
-package be.jarflux.dashboard.core;
+package be.jarflux.car.core;
 
-import be.jarflux.dashboard.service.CarService;
+import be.jarflux.car.service.CarService;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -1,4 +1,6 @@
-package be.jarflux.dashboard.core;
+package be.jarflux.car.core.energy;
+
+import be.jarflux.car.core.energy.Door;
 
 import java.util.Random;
 
@@ -6,7 +8,7 @@ import java.util.Random;
  * Developer: Ben Oeyen
  * Date: 05/04/16
  */
-public class DoorStatus {
+public class Doors {
 
     private Door frontLeft;
     private Door frontRight;
@@ -15,7 +17,7 @@ public class DoorStatus {
     private Door trunk;
     private Door hood;
 
-    public DoorStatus(){
+    public Doors(){
         frontLeft = new Door();
         frontRight = new Door();
         backLeft = new Door();

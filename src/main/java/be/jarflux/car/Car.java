@@ -1,7 +1,7 @@
-package be.jarflux.dashboard;
+package be.jarflux.car;
 
-import be.jarflux.dashboard.controller.EnergyController;
-import be.jarflux.dashboard.health.BasicHealthCheck;
+import be.jarflux.car.controller.EnergyController;
+import be.jarflux.car.health.BasicHealthCheck;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 import io.dropwizard.Application;

@@ -1,4 +1,4 @@
-package be.jarflux.dashboard.service;
+package be.jarflux.car.service;
 
 /**
  * Developer: Ben Oeyen

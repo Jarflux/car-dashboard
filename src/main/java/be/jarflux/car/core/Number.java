@@ -1,4 +1,4 @@
-package be.jarflux.dashboard.core;
+package be.jarflux.car.core;
 
 import java.util.Random;
 

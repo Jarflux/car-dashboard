@@ -1,6 +1,6 @@
-package be.jarflux.dashboard.controller;
+package be.jarflux.car.controller;
 
-import be.jarflux.dashboard.service.CarService;
+import be.jarflux.car.service.CarService;
 import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
 import org.apache.log4j.Logger;

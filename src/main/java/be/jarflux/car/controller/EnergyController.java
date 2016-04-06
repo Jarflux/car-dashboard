@@ -1,8 +1,7 @@
-package be.jarflux.dashboard.controller;
+package be.jarflux.car.controller;
 
-import be.jarflux.dashboard.core.DoorStatus;
-import be.jarflux.dashboard.service.CarService;
-import be.jarflux.dashboard.service.DoorService;
+import be.jarflux.car.core.DoorStatus;
+import be.jarflux.car.service.DoorService;
 import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
 import org.apache.log4j.Logger;

@@ -1,6 +1,6 @@
-package be.jarflux.dashboard.service;
+package be.jarflux.car.service;
 
-import be.jarflux.dashboard.core.SpeedStatus;
+import be.jarflux.car.core.SpeedStatus;
 
 /**
  * Developer: Ben Oeyen
