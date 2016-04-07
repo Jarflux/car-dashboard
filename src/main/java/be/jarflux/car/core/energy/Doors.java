@@ -50,7 +50,7 @@ public class Doors {
         return hood;
     }
 
-    public void tick(){
+    public void change(){
         switch(new Random().nextInt(6)){
             case 0: interact(frontLeft); break;
             case 1: interact(frontRight);break;
