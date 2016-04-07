@@ -16,7 +16,7 @@ logging:
     loggers:
 
         # Sets the level for 'be.jarflux.dashboard' to DEBUG.
-        be.jarflux.dashboard: DEBUG
+        be.jarflux.car: DEBUG
 
     appenders:
         - type: console

@@ -1,0 +1,90 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+
+<body>
+<style>
+    pre {outline: 1px solid #ccc; padding: 5px; margin: 5px; }
+    .string { color: #8867b7; }
+    .number { color: #ff8c00; }
+    .boolean { color: #4789d2; }
+    .null { color: #060006; }
+    .key { color: #2bc32d; }
+</style>
+<script type="text/javascript">
+
+    $(document).ready(function(){
+        $('body').on('click', 'button[data-custom-click]', function(e){
+
+            var me = $(this);
+            var actionUrl = me.attr('data-action-url');
+            var url = me.attr('data-url');
+            var targetElement = $('div#' + me.attr('data-target'));
+
+            $.ajax({
+                type: "POST",
+                crossDomain: true,
+                url: actionUrl
+            });
+
+            $.ajax({
+                type: "GET",
+                dataType: "json",
+                crossDomain: true,
+                url: url,
+                success: function(data){
+                    targetElement.html("<pre>" + syntaxHighlight(JSON.stringify(data,null,2)) + "</pre>");
+                }
+            });
+        });
+    });
+
+    function syntaxHighlight(json) {
+        if (typeof json != 'string') {
+            json = JSON.stringify(json, undefined, 2);
+        }
+        json = json.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return json.replace(/("(\\u[a-zA-Z0-9]{4}|\\[^u]|[^\\"])*"(\s*:)?|\b(true|false|null)\b|-?\d+(?:\.\d*)?(?:[eE][+\-]?\d+)?)/g, function (match) {
+            var cls = 'number';
+            if (/^"/.test(match)) {
+                if (/:$/.test(match)) {
+                    cls = 'key';
+                } else {
+                    cls = 'string';
+                }
+            } else if (/true|false/.test(match)) {
+                cls = 'boolean';
+            } else if (/null/.test(match)) {
+                cls = 'null';
+            }
+            return '<span class="' + cls + '">' + match + '</span>';
+        });
+    }
+
+</script>
+<button data-custom-click data-url="http://localhost:9000/energy/stats" data-target="stats">Statistics</button>
+<div id="stats"></div>
+<button data-custom-click data-url="http://localhost:9000/energy/lights" data-target="lights">Lights</button>
+<div id="lights"></div>
+<button data-custom-click data-url="http://localhost:9000/energy/doors" data-target="doors">Doors</button>
+<button data-custom-click data-action-url="http://localhost:9000/energy/doors/change" data-url="http://localhost:9000/energy/doors" data-target="doors">Change</button>
+<div id="doors"></div>
+<button data-custom-click data-url="http://localhost:9000/energy/belts" data-target="belts">Seatbelts</button>
+<button data-custom-click data-action-url="http://localhost:9000/energy/belts/change" data-url="http://localhost:9000/energy/belts" data-target="belts">Change</button>
+<div id="belts"></div>
+<button data-custom-click data-url="http://localhost:9000/media/music" data-target="music">Music</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/music/power" data-url="http://localhost:9000/media/music" data-target="music">I/O</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/music/shuffle" data-url="http://localhost:9000/media/music" data-target="music">Shuffle</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/music/repeat" data-url="http://localhost:9000/media/music" data-target="music">Repeat</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/music/prev" data-url="http://localhost:9000/media/music" data-target="music">Prev</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/music/next" data-url="http://localhost:9000/media/music" data-target="music">Next</button>
+<div id="music"></div>
+<button data-custom-click data-url="http://localhost:9000/media/radio" data-target="radio">Radio</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/radio/power" data-url="http://localhost:9000/media/radio" data-target="radio">I/O</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/radio/prev" data-url="http://localhost:9000/media/radio" data-target="radio">Prev</button>
+<button data-custom-click data-action-url="http://localhost:9000/media/radio/next" data-url="http://localhost:9000/media/radio" data-target="radio">Next</button>
+<div id="radio"></div>
+
+</body>
+</html>

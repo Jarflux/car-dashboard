@@ -72,7 +72,6 @@ public class EnergyController {
         energyService.getStatistics().change();
     }
 
-
     @GET
     @Timed
     @Path("/lights")
