@@ -1,5 +1,6 @@
 package be.jarflux.car;
 
+import be.jarflux.car.controller.ClimateController;
 import be.jarflux.car.controller.EnergyController;
 import be.jarflux.car.controller.MultimediaController;
 import be.jarflux.car.health.BasicHealthCheck;
@@ -42,10 +43,12 @@ public class Car extends Application<Configuration> {
 
         //Dependency Injection
         Injector injector = Guice.createInjector();
+        final ClimateController climateController = injector.getInstance(ClimateController.class);
         final EnergyController energyController = injector.getInstance(EnergyController.class);
         final MultimediaController multimediaController = injector.getInstance(MultimediaController.class);
 
         //Register REST Controllers
+        environment.jersey().register(climateController);
         environment.jersey().register(energyController);
         environment.jersey().register(multimediaController);
     }

@@ -33,7 +33,19 @@ public class Statistics {
     }
 
     public void change(){
-
+        consumption.add(new Random().nextInt(500));
+        consumption.remove(0);
+        switch(new Random().nextInt(9)){
+            case 0: tripDuration = new Random().nextInt(500); break;
+            case 1: tripDistance = new Random().nextInt(500); break;
+            case 2: tripConsumption = new Random().nextInt(500);break;
+            case 3: avgSpeed = new Random().nextDouble() * 270;break;
+            case 4: totalDuration = new Random().nextInt(400);break;
+            case 5: totalDistance = new Random().nextInt(50);break;
+            case 6: totalConsumption = new Random().nextInt(300) + 150;break;
+            case 7: avgConsumption = new Random().nextInt(150) + 150;break;
+            case 8: battery = new Random().nextInt(100);break;
+        }
     }
 
     public List<Integer> getConsumption() {

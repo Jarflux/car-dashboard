@@ -12,12 +12,15 @@ import org.apache.log4j.Logger;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 /**
  * Developer: Ben Oeyen
  * Date: 05/04/16
  */
 @Path("/media")
+@Produces(MediaType.APPLICATION_JSON)
 public class MultimediaController {
     private final static Logger LOG = Logger.getLogger("Car");
 

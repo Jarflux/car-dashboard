@@ -66,7 +66,7 @@ public class EnergyController {
 
     @POST
     @Timed
-    @Path("/stats")
+    @Path("/stats/change")
     public void statsChange() {
         LOG.debug("@GET /stats Show current statistics status");
         energyService.getStatistics().change();
