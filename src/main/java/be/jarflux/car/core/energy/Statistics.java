@@ -23,17 +23,19 @@ public class Statistics {
 
     public Statistics(){
         Random rd = new Random();
-        consumption.add(rd.nextInt(500));
-        consumption.add(rd.nextInt(500));
-        consumption.add(rd.nextInt(500));
-        consumption.add(rd.nextInt(500));
-        consumption.add(rd.nextInt(500));
-        consumption.add(rd.nextInt(500));
-        consumption.add(rd.nextInt(500));
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
+        consumption.add(rd.nextInt(800)-200);
     }
 
     public void change(){
-        consumption.add(new Random().nextInt(500));
+        consumption.add(new Random().nextInt(800)-200);
         consumption.remove(0);
         switch(new Random().nextInt(9)){
             case 0: tripDuration = new Random().nextInt(500); break;
@@ -42,8 +44,8 @@ public class Statistics {
             case 3: avgSpeed = new Random().nextDouble() * 270;break;
             case 4: totalDuration = new Random().nextInt(400);break;
             case 5: totalDistance = new Random().nextInt(50);break;
-            case 6: totalConsumption = new Random().nextInt(300) + 150;break;
-            case 7: avgConsumption = new Random().nextInt(150) + 150;break;
+            case 6: totalConsumption = new Random().nextInt(1000) + 150;break;
+            case 7: avgConsumption = new Random().nextInt(800)-200;break;
             case 8: battery = new Random().nextInt(100);break;
         }
     }

@@ -1,9 +1,7 @@
 package be.jarflux.car.controller;
 
 import be.jarflux.car.core.Climate;
-import be.jarflux.car.core.energy.Doors;
 import be.jarflux.car.service.ClimateService;
-import be.jarflux.car.service.EnergyService;
 import com.codahale.metrics.annotation.Timed;
 import com.google.inject.Inject;
 
@@ -67,7 +65,7 @@ public class ClimateController {
     @Timed
     @Path("/volume/{volume}")
     public void setVolume(@PathParam("volume")int volume) {
-        climateService.getClimate().setTemperature(volume);
+        climateService.getClimate().setVolume(volume);
     }
 
     @POST
