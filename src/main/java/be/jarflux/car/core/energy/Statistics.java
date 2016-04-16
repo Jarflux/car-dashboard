@@ -11,44 +11,84 @@ import java.util.Random;
 public class Statistics {
 
     private List<Integer> consumption = new ArrayList<>();
-    private int tripDuration = 100;
-    private int tripDistance = 250;
-    private int tripConsumption = 350;
+    private List<Integer> distance = new ArrayList<>();
+    private int tripDuration = 0;
+    private int tripDistance = 0;
+    private int tripConsumption = 0;
     private double avgSpeed = 65.20;
-    private int totalDuration = 20;
-    private int totalDistance = 20;
-    private int totalConsumption = 350;
-    private int avgConsumption = 200;
+    private int totalDuration = 10;
+    private int totalDistance = 10;
+    private int totalConsumption = 1000;
+    private int avgConsumption;
     private int battery = 85;
 
-    public Statistics(){
-        Random rd = new Random();
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
-        consumption.add(rd.nextInt(800)-200);
+    private static transient final int SLOPE = 10;
+    private transient int totalAmountOfPolls = 0;
+
+    public Statistics() {
+        consumption.add((200));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+        consumption.add(calculateNumber(consumption.get(consumption.size() - 1)));
+
+        distance.add(1);
+        distance.add(2);
+        distance.add(3);
+        distance.add(4);
+        distance.add(5);
+        distance.add(6);
+        distance.add(7);
+        distance.add(8);
+        distance.add(9);
+        distance.add(10);
     }
 
-    public void change(){
-        consumption.add(new Random().nextInt(800)-200);
+    public int calculateNumber(int prev) {
+        int number = prev + (new Random().nextInt(SLOPE) - (SLOPE / 2));
+        return Math.min(600, Math.max(-200, number));
+    }
+
+    public void resetTrip() {
+        tripConsumption = 0;
+        tripDistance = 0;
+        tripDuration = 0;
+    }
+
+    public void change() {
+        totalAmountOfPolls++;
+        tripDistance++;
+        totalDistance++;
+        tripDuration++;
+        totalDuration++;
+
+        int consumptionNumber = calculateNumber(consumption.get(consumption.size() - 1));
+        tripConsumption += consumptionNumber;
+        totalConsumption += consumptionNumber;
+
+        consumption.add(consumptionNumber);
         consumption.remove(0);
-        switch(new Random().nextInt(9)){
-            case 0: tripDuration = new Random().nextInt(500); break;
-            case 1: tripDistance = new Random().nextInt(500); break;
-            case 2: tripConsumption = new Random().nextInt(500);break;
-            case 3: avgSpeed = new Random().nextDouble() * 270;break;
-            case 4: totalDuration = new Random().nextInt(400);break;
-            case 5: totalDistance = new Random().nextInt(50);break;
-            case 6: totalConsumption = new Random().nextInt(1000) + 150;break;
-            case 7: avgConsumption = new Random().nextInt(800)-200;break;
-            case 8: battery = new Random().nextInt(100);break;
+        distance.add(totalDistance);
+        distance.remove(0);
+        switch (new Random().nextInt(1)) {
+            case 0:
+                avgSpeed = new Random().nextDouble() * 270;
+                break;
+            case 1:
+                battery = new Random().nextInt(100);
+                break;
         }
     }
+
+    public List<Integer> getDistance() {
+        return distance;
+    }
+
 
     public List<Integer> getConsumption() {
         return consumption;
@@ -83,7 +123,7 @@ public class Statistics {
     }
 
     public int getAvgConsumption() {
-        return avgConsumption;
+        return totalAmountOfPolls == 0 ? 0 : totalConsumption / totalAmountOfPolls;
     }
 
     public int getBattery() {

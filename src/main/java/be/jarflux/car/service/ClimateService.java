@@ -13,7 +13,7 @@ public class ClimateService {
         climate = new Climate();
     }
 
-    public static Climate getClimate() {
+    public Climate getClimate() {
         return climate;
     }
 }

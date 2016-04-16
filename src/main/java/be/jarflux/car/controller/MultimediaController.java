@@ -25,13 +25,12 @@ public class MultimediaController {
     private final static Logger LOG = Logger.getLogger("Car");
 
     @Inject
-    protected MultimediaService multimediaService;
+    private MultimediaService multimediaService;
 
     @GET
     @Timed
     @Path("/music")
     public Music music() {
-        LOG.debug("@GET /music");
         return multimediaService.getMusic();
     }
 
@@ -39,7 +38,6 @@ public class MultimediaController {
     @Timed
     @Path("/music/power")
     public void musicPower() {
-        LOG.debug("@POST /music/power");
         multimediaService.getMusic().togglePower();
     }
 
@@ -47,7 +45,6 @@ public class MultimediaController {
     @Timed
     @Path("/music/shuffle")
     public void musicShuffle() {
-        LOG.debug("@POST /music/shuffle");
         multimediaService.getMusic().toggleShuffle();
     }
 
@@ -55,7 +52,6 @@ public class MultimediaController {
     @Timed
     @Path("/music/repeat")
     public void musicRepeat() {
-        LOG.debug("@POST /music/repeat");
         multimediaService.getMusic().toggleRepeat();
     }
 
@@ -63,7 +59,6 @@ public class MultimediaController {
     @Timed
     @Path("/music/next")
     public void musicNext() {
-        LOG.debug("@POST /music/next");
         multimediaService.getMusic().next();
     }
 
@@ -71,7 +66,6 @@ public class MultimediaController {
     @Timed
     @Path("/music/prev")
     public void musicPrev() {
-        LOG.debug("@POST /music/prev");
         multimediaService.getMusic().prev();
     }
 
@@ -79,7 +73,6 @@ public class MultimediaController {
     @Timed
     @Path("/radio")
     public Radio radio() {
-        LOG.debug("@GET /radio");
         return multimediaService.getRadio();
     }
 
@@ -87,7 +80,6 @@ public class MultimediaController {
     @Timed
     @Path("/radio/power")
     public void radioPower() {
-        LOG.debug("@POST /radio/power");
         multimediaService.getRadio().togglePower();
     }
 
@@ -95,7 +87,6 @@ public class MultimediaController {
     @Timed
     @Path("/radio/next")
     public void radioNext() {
-        LOG.debug("@POST /radio/next");
         multimediaService.getRadio().next();
     }
 
@@ -103,7 +94,6 @@ public class MultimediaController {
     @Timed
     @Path("/radio/prev")
     public void radioPrev() {
-        LOG.debug("@POST /radio/prev");
         multimediaService.getRadio().prev();
     }
 }

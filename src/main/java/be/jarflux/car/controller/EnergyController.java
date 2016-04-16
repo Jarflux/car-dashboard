@@ -28,7 +28,6 @@ public class EnergyController {
     @Timed
     @Path("/doors")
     public Doors doors() {
-        LOG.debug("@GET /doors Show current door status");
         return energyService.getDoors();
     }
 
@@ -36,7 +35,6 @@ public class EnergyController {
     @Timed
     @Path("/doors/change")
     public void doorsChange() {
-        LOG.debug("@GET /doors Show current door status");
         energyService.getDoors().change();
     }
 
@@ -44,7 +42,6 @@ public class EnergyController {
     @Timed
     @Path("/belts")
     public Seatbelts belts() {
-        LOG.debug("@GET /belts Show current seatbelt status");
         return energyService.getSeatbelts();
     }
 
@@ -52,7 +49,6 @@ public class EnergyController {
     @Timed
     @Path("/belts/change")
     public void beltsChange() {
-        LOG.debug("@GET /belts Show current seatbelt status");
         energyService.getSeatbelts().change();
     }
 
@@ -60,7 +56,6 @@ public class EnergyController {
     @Timed
     @Path("/stats")
     public Statistics stats() {
-        LOG.debug("@GET /stats Show current statistics status");
         return energyService.getStatistics();
     }
 
@@ -68,15 +63,20 @@ public class EnergyController {
     @Timed
     @Path("/stats/change")
     public void statsChange() {
-        LOG.debug("@GET /stats Show current statistics status");
         energyService.getStatistics().change();
+    }
+
+    @POST
+    @Timed
+    @Path("/stats/trip/reset")
+    public void statsResetTrip() {
+        energyService.getStatistics().resetTrip();
     }
 
     @GET
     @Timed
     @Path("/lights")
     public Lights lights() {
-        LOG.debug("@GET /lights Show current lights status");
         return energyService.getLights();
     }
 
@@ -84,7 +84,6 @@ public class EnergyController {
     @Timed
     @Path("/lights/change")
     public void lightsChange() {
-        LOG.debug("@GET /lights Show current lights status");
         energyService.getLights().change();
     }
 }

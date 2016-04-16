@@ -17,11 +17,11 @@ public class MultimediaService {
         radio = new Radio();
     }
 
-    public static Music getMusic() {
+    public Music getMusic() {
         return music;
     }
 
-    public static Radio getRadio() {
+    public Radio getRadio() {
         return radio;
     }
 }
